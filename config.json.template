@@ -1,0 +1,39 @@
+{
+  "env":{
+    "port":3001
+  },
+  "db":{
+    "server":"",
+    "db":"",
+    "user":"",
+    "pass":""
+  },
+  "auth":{
+    "usercol":"_user",
+    "secret":"secret"
+  },
+  "schemas":{
+    "dir":"./schemas"
+  },
+  "import":{
+    "dir":"./import",
+    "importcol":"import"
+  },
+  "assets": {
+    "dir":"./asset/uploads/files",
+    "thumbs":"./asset/uploads/thumbs",
+    "IIIFDropZone":""
+  },
+  "version": "1",
+  "meta": {
+    "title":"",
+    "copyright-software": "MIT License",
+    "copyright-data": "CC BY 2.0",
+    "authors-software": [
+      ""
+    ],
+    "authors-data": [
+      ""
+    ]
+  }
+}

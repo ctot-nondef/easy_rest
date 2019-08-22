@@ -1,0 +1,9 @@
+config.json
+node_modules
+err.txt
+output.txt
+asset/uploads/*
+asset/userimg
+.idea/*
+schemas
+/package-lock.json
