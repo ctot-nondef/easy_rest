@@ -24,11 +24,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(methodOverride());
-app.use(cors({
-  credentials: true,
-  origin: ["http://localhost:8080","https://vchc.univie.ac.at"],
-  exposedHeaders: ["X-Total-Count"]
-}));
+app.use(cors(CONFIG.cors));
 app.use(fileUpload());
 
 // init mongodb
