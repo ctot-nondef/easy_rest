@@ -8,6 +8,10 @@
     "user":"",
     "pass":""
   },
+  "cors": {
+    "credentials": true,
+    "origin": ["*"]
+  },
   "auth":{
     "usercol":"_user",
     "secret":"secret"
