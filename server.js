@@ -66,16 +66,17 @@ for (i = 0; i < SCHEMA.schemas.length; i ++) {
       totalCountHeader: true,
     });
   }
-  restify.serve(ROUTER, AUTH.User, {
+};
+
+restify.serve(ROUTER, AUTH.User, {
     preCreate: AUTH.chkUser,
     preUpdate: AUTH.chkUser,
     preDelete: AUTH.chkUser,
     preRead: AUTH.chkSession,
     totalCountHeader: true,
     findOneAndUpdate: false,
-  });
-  SCHEMA.addMongooseAPISpec(SCHEMA.swaggerSpec, CONFIG.auth.usercol, AUTH.UserSchema);
-};
+});
+SCHEMA.addMongooseAPISpec(SCHEMA.swaggerSpec, CONFIG.auth.usercol, AUTH.UserSchema);
 
 // serve asset folder - is this wise?
 app.use('/asset', express.static('asset'));
