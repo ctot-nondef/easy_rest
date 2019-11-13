@@ -28,6 +28,7 @@
     "pdf-image": "2.0.0",
     "request": "^2.88.0",
     "swagger-jsdoc": "^3.4.0",
-    "uniqid": "5.0.3"
+    "uniqid": "5.0.3",
+    "lodash": "^4.17.15"
   }
 }
