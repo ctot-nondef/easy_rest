@@ -14,7 +14,7 @@
     "cors": "2.8.4",
     "express": "^4.16.4",
     "express-async-handler": "1.1.4",
-    "express-fileupload": "0.2.0",
+    "express-fileupload": "1.1.9",
     "express-restify-mongoose": "^5.0.0",
     "express-session": "1.15.6",
     "jimp": "0.5.6",
