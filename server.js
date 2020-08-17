@@ -49,12 +49,12 @@ app.use(session({
 }));
 
 //clear cookies whose sessionid has disappeared
-app.use((req, res, next) => {
+/*app.use((req, res, next) => {
     if (req.cookies.userid && !req.session.user) {
         res.clearCookie('userid');
     }
     next();
-});
+});*/
 
 // create API for each schema in schema Folder
 for (i = 0; i < SCHEMA.schemas.length; i ++) {
