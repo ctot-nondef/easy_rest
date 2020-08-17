@@ -43,7 +43,7 @@ app.use(session({
       expires: 604800000,
       httpOnly: false,
       SameSite: 'none',
-      secure: true,
+      Secure: true,
   },
   store: new MongoStore({
     mongooseConnection: db
