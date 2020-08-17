@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser')
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -21,6 +22,13 @@ const AUTH = require('./lib/auth.js');
 const app = express();
 
 app.use(bodyParser.json());
+app.use(cookieParser(
+    CONFIG.auth.secret,
+    {
+      sameSite: 'none',
+      secure: true,
+    }
+));
 app.use(methodOverride());
 app.use(cors(CONFIG.cors));
 app.use(fileUpload());
@@ -49,12 +57,12 @@ app.use(session({
 }));
 
 //clear cookies whose sessionid has disappeared
-/*app.use((req, res, next) => {
+app.use((req, res, next) => {
     if (req.cookies.userid && !req.session.user) {
         res.clearCookie('userid');
     }
     next();
-});*/
+});
 
 // create API for each schema in schema Folder
 for (i = 0; i < SCHEMA.schemas.length; i ++) {
