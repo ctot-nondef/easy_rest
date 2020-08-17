@@ -42,6 +42,8 @@ app.use(session({
   cookie: {
       expires: 604800000,
       httpOnly: false,
+      sameSite: none,
+      secure: true,
   },
   store: new MongoStore({
     mongooseConnection: db
@@ -74,7 +76,6 @@ restify.serve(ROUTER, AUTH.User, {
     preDelete: AUTH.chkUser,
     preRead: AUTH.chkSession,
     totalCountHeader: true,
-    findOneAndUpdate: false,
 });
 SCHEMA.addMongooseAPISpec(SCHEMA.swaggerSpec, CONFIG.auth.usercol, AUTH.UserSchema);
 
