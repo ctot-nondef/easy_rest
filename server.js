@@ -23,11 +23,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cookieParser(
-    CONFIG.auth.secret,
-    {
-      sameSite: 'none',
-      secure: true,
-    }
+    CONFIG.auth.secret
 ));
 app.use(methodOverride());
 app.use(cors(CONFIG.cors));
