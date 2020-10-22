@@ -39,6 +39,7 @@ app.use(session({
   secret: CONFIG.auth.secret,
   resave: false,
   saveUninitialized: false,
+  proxy: true,
   cookie: {
       expires: 604800000,
       httpOnly: false,
