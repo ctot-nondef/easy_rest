@@ -28,12 +28,12 @@ app.use(cors(CONFIG.cors));
 app.use(fileUpload());
 
 // init mongodb
-/*mongoose.connect(`mongodb://${CONFIG.db.user}:${CONFIG.db.pass}@${CONFIG.db.server}/${CONFIG.db.db}?authSource=test`, function(error) {
-  console.log(error);
-});*/
-mongoose.connect(`mongodb://${CONFIG.db.server}/${CONFIG.db.db}`, function(error) {
+mongoose.connect(`mongodb://${CONFIG.db.user}:${CONFIG.db.pass}@${CONFIG.db.server}/${CONFIG.db.db}?authSource=test`, function(error) {
   console.log(error);
 });
+/*mongoose.connect(`mongodb://${CONFIG.db.server}/${CONFIG.db.db}`, function(error) {
+  console.log(error);
+});*/
 var db = mongoose.connection;
 
 //use sessions for tracking logins
