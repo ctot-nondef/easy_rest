@@ -27,8 +27,8 @@ app.use(cookieParser(
     {
       expires: 604800000,
       httpOnly: false,
-      sameSite: 'none',
-      secure: true,
+      SameSite: 'none',
+      Secure: true,
     },
 ));
 app.use(methodOverride());
@@ -53,8 +53,8 @@ app.use(session({
   cookie: {
       expires: 604800000,
       httpOnly: false,
-      sameSite: 'none',
-      secure: true,
+      SameSite: 'none',
+      Secure: true,
   },
   store: new MongoStore({
     mongooseConnection: db
