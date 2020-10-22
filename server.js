@@ -42,6 +42,8 @@ app.use(session({
   cookie: {
       expires: 604800000,
       httpOnly: false,
+      sameSite: 'None',
+      secure: true,
   },
   store: new MongoStore({
     mongooseConnection: db
