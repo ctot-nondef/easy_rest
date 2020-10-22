@@ -25,11 +25,9 @@ app.use(bodyParser.json());
 app.use(cookieParser(
     CONFIG.auth.secret,
     {
-      expires: 604800000,
-      httpOnly: false,
-      sameSite: 'None',
+      sameSite: 'none',
       secure: true,
-    },
+    }
 ));
 app.use(methodOverride());
 app.use(cors(CONFIG.cors));
@@ -39,9 +37,6 @@ app.use(fileUpload());
 mongoose.connect(`mongodb://${CONFIG.db.user}:${CONFIG.db.pass}@${CONFIG.db.server}/${CONFIG.db.db}?authSource=test`, function(error) {
   console.log(error);
 });
-/*mongoose.connect(`mongodb://${CONFIG.db.server}/${CONFIG.db.db}`, function(error) {
-  console.log(error);
-});*/
 var db = mongoose.connection;
 
 //use sessions for tracking logins
@@ -53,7 +48,7 @@ app.use(session({
   cookie: {
       expires: 604800000,
       httpOnly: false,
-      sameSite: 'None',
+      sameSite: 'none',
       secure: true,
   },
   store: new MongoStore({
