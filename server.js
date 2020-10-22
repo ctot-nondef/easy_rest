@@ -22,7 +22,15 @@ const AUTH = require('./lib/auth.js');
 const app = express();
 
 app.use(bodyParser.json());
-app.use(cookieParser());
+app.use(cookieParser(
+    CONFIG.auth.secret,
+    {
+      expires: 604800000,
+      httpOnly: false,
+      sameSite: 'None',
+      secure: true,
+    },
+));
 app.use(methodOverride());
 app.use(cors(CONFIG.cors));
 app.use(fileUpload());
