@@ -23,14 +23,23 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cookieParser(
-    CONFIG.auth.secret
+    CONFIG.auth.secret,
+    {
+      expires: 604800000,
+      httpOnly: false,
+      sameSite: 'none',
+      secure: true,
+    },
 ));
 app.use(methodOverride());
 app.use(cors(CONFIG.cors));
 app.use(fileUpload());
 
 // init mongodb
-mongoose.connect(`mongodb://${CONFIG.db.user}:${CONFIG.db.pass}@${CONFIG.db.server}/${CONFIG.db.db}?authSource=test`, function(error) {
+/*mongoose.connect(`mongodb://${CONFIG.db.user}:${CONFIG.db.pass}@${CONFIG.db.server}/${CONFIG.db.db}?authSource=test`, function(error) {
+  console.log(error);
+});*/
+mongoose.connect(`mongodb://${CONFIG.db.server}/${CONFIG.db.db}`, function(error) {
   console.log(error);
 });
 var db = mongoose.connection;
